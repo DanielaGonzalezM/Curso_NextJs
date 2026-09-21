@@ -5,8 +5,8 @@ export default function HomePage() {
     <main>
       <div className="flex flex-col items-center p-24">
         <span className="text-5xl">Hola Mundo</span>
+        <Link href={"/about"}> About Page</Link>
       </div>
-      <Link href={"/about"}> About Page</Link>
     </main>
   );
 }
