@@ -1,2 +1,14 @@
 #!/usr/bin/env sh
-cd 02-my-dashboard && npx lint-staged
+# Detecta las subcarpetas de proyecto (01-first-steps, 02-my-dashboard, ...)
+# que tienen archivos en stage y corre lint-staged dentro de cada una.
+
+set -e
+
+staged_dirs=$(git diff --cached --name-only --diff-filter=ACMR | awk -F/ 'NF>1 {print $1}' | sort -u)
+
+for dir in $staged_dirs; do
+  if [ -f "$dir/package.json" ] && [ -f "$dir/.prettierrc" ]; then
+    echo "→ Formateando cambios en $dir"
+    (cd "$dir" && npx lint-staged)
+  fi
+done
