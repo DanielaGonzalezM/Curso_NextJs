@@ -29,6 +29,41 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Running with Docker
+
+Build the image:
+
+```bash
+docker build -t nextjs-first-steps .
+```
+
+Run a container from that image (maps container port 3000 to your machine's port 3000):
+
+```bash
+docker run -d -p 3000:3000 --name nextjs-first-steps nextjs-first-steps:latest
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see it running.
+
+Other useful commands:
+
+```bash
+# List running containers
+docker ps
+
+# Stop the container
+docker stop nextjs-first-steps
+
+# Start it again without rebuilding
+docker start nextjs-first-steps
+
+# Remove the container (needed before re-running with the same --name)
+docker rm nextjs-first-steps
+
+# View the built image
+docker images
+```
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
