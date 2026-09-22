@@ -1,26 +1,37 @@
-import Image from "next/image";
-import { IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
-import { SidebarMenuItem } from "./SidebarMenuItem";
+import Image from 'next/image';
+import {
+  IoBrowsersOutline,
+  IoCalculator,
+  IoFootball,
+  IoLogoReact,
+} from 'react-icons/io5';
+import { SidebarMenuItem } from './SidebarMenuItem';
 
 const menuItems = [
   {
-    path: "/dashboard/main",
-    title: "Dashboard",
-    subTitle: "Visualización",
+    path: '/dashboard/main',
+    title: 'Dashboard',
+    subTitle: 'Visualización',
     icon: <IoBrowsersOutline size={40} />,
   },
   {
-    path: "/dashboard/counter",
-    title: "Counter",
-    subTitle: "Counter Client Side",
+    path: '/dashboard/counter',
+    title: 'Counter',
+    subTitle: 'Counter Client Side',
     icon: <IoCalculator size={40} />,
+  },
+  {
+    path: '/dashboard/pokemons',
+    title: 'Pokemons',
+    subTitle: 'Generación Estática',
+    icon: <IoFootball size={40} />,
   },
 ];
 export const Sidebar = () => {
   return (
     <div
       id="menu"
-      style={{ width: "400px" }}
+      style={{ width: '400px' }}
       className="bg-gray-900 min-h-screen z-10 text-slate-300 w-64 left-0 h-screen overflow-y-scroll"
     >
       <div id="logo" className="my-4 px-6">
@@ -51,10 +62,7 @@ export const Sidebar = () => {
 
       <div id="nav" className="w-full px-6">
         {menuItems.map((menuItem) => (
-          <SidebarMenuItem
-            key={menuItem.path}
-            {...menuItem}
-          />
+          <SidebarMenuItem key={menuItem.path} {...menuItem} />
         ))}
       </div>
     </div>
